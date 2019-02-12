@@ -8,7 +8,7 @@ const int Period = 8;
 
 using namespace std;
 
-void  Find_Number(list<int>& list)
+void  FindNumber(list<int>& list)
 {
 	auto iterator = list.begin();
 	int k;
@@ -21,18 +21,18 @@ void  Find_Number(list<int>& list)
 			iterator = list.begin();
 		}
 		list.pop_front();
-		Find_Number(list);
+		FindNumber(list);
 	}	
 }
 
 int main()
 {
-	list<int> list_int;
+	list<int> ListInt;
 	for (int i = 1; i <= Count; ++i)
-		list_int.push_back(i);
-	Find_Number(list_int);
+		ListInt.push_back(i);
+	FindNumber(ListInt);
 	cout << "Answer : ";
-	cout << list_int.front() << endl;
+	cout << ListInt.front() << endl;
 	system("pause");
 	return 0;
 
