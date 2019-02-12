@@ -3,20 +3,26 @@
 #include <list> 
 #include <algorithm> 
 
-const int Count = 22;
-const int Period = 5;
+const int Count = 54;
+const int Period = 8;
 
 using namespace std;
 
-int Find_Number(list<int>& list)
+void  Find_Number(list<int>& list)
 {
-	if (list.begin != list.end - 1)
+	auto iterator = list.begin();
+	int k;
+	if (list.size() > 1 )
 	{
-		for_each(list.cbegin(), list.cend()  - 1 + Period, list.push_back());
-		list.pop_front;
+		for (int i = 1; i < Period; i++)
+		{
+			list.push_back(*iterator);
+			list.pop_front();
+			iterator = list.begin();
+		}
+		list.pop_front();
 		Find_Number(list);
-		
-	}
+	}	
 }
 
 int main()
@@ -24,7 +30,9 @@ int main()
 	list<int> list_int;
 	for (int i = 1; i <= Count; ++i)
 		list_int.push_back(i);
-	cout << Find_Number(list_int);
+	Find_Number(list_int);
+	cout << "Answer : ";
+	cout << list_int.front() << endl;
 	system("pause");
 	return 0;
 
