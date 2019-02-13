@@ -3,8 +3,8 @@
 #include <list> 
 #include <algorithm> 
 
-const int Count = 54;
-const int Period = 8;
+const int Count = 76;
+const int Period = 33;
 
 using namespace std;
 
@@ -12,7 +12,7 @@ void  FindNumber(list<int>& list)
 {
 	auto iterator = list.begin();
 	int k;
-	if (list.size() > 1 )
+	if (list.size() > 1)
 	{
 		for (int i = 1; i < Period; i++)
 		{
@@ -22,7 +22,9 @@ void  FindNumber(list<int>& list)
 		}
 		list.pop_front();
 		FindNumber(list);
-	}	
+	}
+	else
+		cout << "Answer : " <<  list.front() << endl ;
 }
 
 int main()
@@ -31,8 +33,6 @@ int main()
 	for (int i = 1; i <= Count; ++i)
 		ListInt.push_back(i);
 	FindNumber(ListInt);
-	cout << "Answer : ";
-	cout << ListInt.front() << endl;
 	system("pause");
 	return 0;
 
